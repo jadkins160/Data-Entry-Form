@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        <h1>ConfirmationPage</h1>
     </div>
 </template>
 

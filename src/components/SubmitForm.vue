@@ -1,8 +1,7 @@
 <template>
     <div class="container">
         <h1>Welcome! Please submit your information</h1>
-        <form id="formSubmission" v-on:submit.prevent="saveUser" action="confirmation.html" method="post"
-            target="confirmation.html">
+        <form id="formSubmission" v-on:submit.prevent="saveUser">
 
             <label for="name">Name: </label>
             <input type="text" id="name" name="name" required v-model="newUser.name" />
@@ -24,6 +23,7 @@
 
         </form>
 
+
     </div>
 </template>
 
@@ -31,24 +31,28 @@
 export default {
     data() {
         return {
-            selectedUsers: [],
-        }
-    },
-    methods: {
-        getNextUserId() {
-            return this.getNextUserId++;
-        },
-        saveUser() {
-            this.newUser.id = this.getNextUserId();
-            this.users.push(this.newUser);
-            this.newUser = {
+            userId: 1,
+            addedUsers: [],
+            newUser: {
                 id: null,
                 name: "",
                 age: "",
                 title: "",
                 hometown: ""
-            };
+            },
+        }
+    },
+    methods: {
+        getNextUserId() {
+            return this.userId++;
         },
+        submitForm() {
+            this.$router.push('/confirmation');
+            this.newUser.id = this.getNextUserId();
+            this.addedUsers.push(this.newUser);
+            console.log(this.addedUsers);
+        },
+        
     },
 }
 </script>
