@@ -1,6 +1,6 @@
 <template>
   <div id="formSubmission">
-    
+
     <submitForm></submitForm>
     <ConfirmationPage></ConfirmationPage>
   </div>
@@ -8,12 +8,10 @@
 
 <script>
 import SubmitForm from "./components/SubmitForm.vue";
-//import ConfirmationPage from "./components/ConfirmationPage.vue";
 
 export default {
   components: {
     SubmitForm,
-    //ConfirmationPage
   }
 };
 </script>

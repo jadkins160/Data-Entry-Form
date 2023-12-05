@@ -4,7 +4,7 @@
         <form id="formSubmission" v-on:submit.prevent="saveUser">
 
             <label for="name">Name: </label>
-            <input type="text" id="name" name="name" required v-model="newUser.name" />
+            <input type="text" id="name" name="name" placeholder="required" required v-model="newUser.name" />
             <div>&nbsp;</div>
 
             <label for="age">Age: </label>
@@ -12,7 +12,7 @@
             <div>&nbsp;</div>
 
             <label for="title">Title: </label>
-            <input type="text" id="title" name="title" required v-model="newUser.title" />
+            <input type="text" id="title" name="title" placeholder="required" required v-model="newUser.title" />
             <div>&nbsp;</div>
 
             <label for="hometown">Hometown: </label>
@@ -20,10 +20,7 @@
             <div>&nbsp;</div>
 
             <button v-on:click="$event => submitForm()">Submit</button>
-
         </form>
-
-
     </div>
 </template>
 
@@ -47,17 +44,25 @@ export default {
             return this.userId++;
         },
         submitForm() {
-            this.$router.push('/confirmation');
+            this.$router.push({ name: 'confirmation' });
             this.newUser.id = this.getNextUserId();
             this.addedUsers.push(this.newUser);
             console.log(this.addedUsers);
         },
-        
     },
 }
 </script>
 
+<style>
+h1 {
+    text-align: center;
+}
 
-
-
-<style></style>
+.container {
+    width: 900px;
+    height: 300px;
+    border: 1px solid black;
+    background-color: #fb9d9d;
+    padding: 5px;
+}
+</style>
